@@ -1,6 +1,5 @@
 {
   "version": 2,
-  "buildCommand": "npm install",
   "env": {
     "NODE_ENV": "production"
   },
@@ -8,6 +7,14 @@
     {
       "src": "package.json",
       "use": "@vercel/node"
+    },
+    {
+      "src": "index.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "*.{js,css}",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
@@ -16,8 +23,12 @@
       "dest": "api/server.js"
     },
     {
+      "src": "/api/.*",
+      "dest": "api/server.js"
+    },
+    {
       "src": "/(.*)",
-      "dest": "/$1"
+      "dest": "/index.html"
     }
   ]
 }
