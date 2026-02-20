@@ -7,10 +7,6 @@
     {
       "src": "api/server.js",
       "use": "@vercel/node"
-    },
-    {
-      "src": "index.html",
-      "use": "@vercel/static"
     }
   ],
   "rewrites": [
@@ -19,7 +15,7 @@
       "destination": "api/server.js"
     },
     {
-      "source": "/(.*)",
+      "source": "/(?!.*\\.(?:js|css|svg|png|jpg|jpeg|gif|ico|woff|woff2|ttf|eot)$).*",
       "destination": "/index.html"
     }
   ]
